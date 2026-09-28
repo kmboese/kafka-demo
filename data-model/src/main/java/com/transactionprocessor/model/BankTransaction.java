@@ -14,6 +14,11 @@ import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.time.Instant;
 import java.util.Currency;
@@ -24,11 +29,16 @@ import java.util.Currency;
 @Entity
 @Table(name = "bank_transactions")
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@ToString(exclude = {"createdAt", "updatedAt"})
 public class BankTransaction implements Transaction, Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @Setter(AccessLevel.NONE)
     private Integer id;
 
     @Column(name = "event_time", nullable = false)
@@ -56,14 +66,13 @@ public class BankTransaction implements Transaction, Event {
 
     @Column(name = "created_at", insertable = false, updatable = false)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @Setter(AccessLevel.NONE)
     private Instant createdAt;
 
     @Column(name = "updated_at", insertable = false, updatable = false)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    @Setter(AccessLevel.NONE)
     private Instant updatedAt;
-
-    protected BankTransaction() {
-    }
 
     public BankTransaction(Instant eventTime, double amount, Currency currency,
                            BankAccount fromAccount, BankAccount toAccount) {
@@ -72,66 +81,5 @@ public class BankTransaction implements Transaction, Event {
         this.currency = currency;
         this.fromAccount = fromAccount;
         this.toAccount = toAccount;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public Instant getEventTime() {
-        return eventTime;
-    }
-
-    public void setEventTime(Instant eventTime) {
-        this.eventTime = eventTime;
-    }
-
-    @Override
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    @Override
-    public Currency getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(Currency currency) {
-        this.currency = currency;
-    }
-
-    public BankAccount getFromAccount() {
-        return fromAccount;
-    }
-
-    public void setFromAccount(BankAccount fromAccount) {
-        this.fromAccount = fromAccount;
-    }
-
-    public BankAccount getToAccount() {
-        return toAccount;
-    }
-
-    public void setToAccount(BankAccount toAccount) {
-        this.toAccount = toAccount;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public Instant getUpdatedAt() {
-        return updatedAt;
-    }
-
-    @Override
-    public String toString() {
-        return "BankTransaction{id=" + id + ", eventTime=" + eventTime + ", amount=" + amount
-                + ", currency=" + currency + ", from=" + fromAccount + ", to=" + toAccount + "}";
     }
 }
