@@ -10,7 +10,7 @@ The goal of this project is to create a mock financial transactions processing a
 This project will use Java, including the Spring Boot framework for creating app servers, interacting with databases, etc.
 
 ## Tech Stack
-- Language: Java 27
+- Language: Java 25 LTS
 - Server: Spring Boot 4.1.1
 - Database: MySQL 9.7 LTS
 - Messaging: Kafka 4.3

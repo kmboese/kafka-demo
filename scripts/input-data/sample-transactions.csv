@@ -1,0 +1,11 @@
+amount,currency,from_account_name,from_owner_name,from_institution_name,to_account_name,to_owner_name,to_institution_name
+3079.91,GBP,Money Market,Alice Johnson,Pinecrest Bank,Money Market,Emma Patel,First National Bank
+654.89,EUR,Money Market,Frank Miller,Summit Savings,Checking,Grace Kim,Harbor Credit Union
+3257.69,CAD,Savings,Bob Smith,Harbor Credit Union,Checking,David Garcia,Pinecrest Bank
+4683.73,USD,Savings,Grace Kim,First National Bank,Savings,Carol Nguyen,Harbor Credit Union
+3378.92,EUR,Business Checking,Alice Johnson,Summit Savings,Money Market,Grace Kim,Summit Savings
+2262.60,GBP,Money Market,Carol Nguyen,First National Bank,Checking,David Garcia,Harbor Credit Union
+959.08,GBP,Money Market,Alice Johnson,Summit Savings,Checking,Grace Kim,Metro Trust
+825.32,EUR,Business Checking,Henry Lopez,Harbor Credit Union,Checking,Carol Nguyen,Harbor Credit Union
+2004.40,USD,Savings,Alice Johnson,First National Bank,Money Market,Bob Smith,Pinecrest Bank
+849.74,CAD,Money Market,Henry Lopez,First National Bank,Checking,Carol Nguyen,Harbor Credit Union
