@@ -15,6 +15,7 @@ This project will use Java, including the Spring Boot framework for creating app
 - Database: MySQL 9.7 LTS
 - Messaging: Kafka 4.3
 - Containerization: Docker engine v29
+- Build framework: Gradle
 
 ## Containerization
 I want to containerize all servers using Docker and a Docker Compose file. This will allow me to easily deploy the app locally in many environments.
